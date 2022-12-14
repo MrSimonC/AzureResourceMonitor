@@ -1,0 +1,13 @@
+### Use this file with VSCode and the REST Client extension to test your code. https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+POST https://localhost:7212/
+Content-Type: application/json
+
+{
+    "Program": "Simon Program1",
+    "Date": "2022-12-12T14:09:18Z",
+    "Message": "Program finished not ok"
+}
+
+###
+Get https://localhost:7212/
