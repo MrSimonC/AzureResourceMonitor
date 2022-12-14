@@ -1,12 +1,14 @@
 using Azure.Data.Tables;
+using Middleware;
 using TableStorageApi.Models;
 
 const string tableName = "ProgramStatus";
 const string partitionKey = "StatusUpdate"; 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
+app.UseApiKeyAuthentication();
 
-var tableConnString = builder.Configuration["TableStorageConnectionString"];
+var tableConnString = Environment.GetEnvironmentVariable("TABLESTORAGECONNECTIONSTRING");
 var tableClient = new TableClient(tableConnString, tableName);
 
 app.MapGet("/", () => Results.Json(tableClient.Query<StatusEntry>()));
