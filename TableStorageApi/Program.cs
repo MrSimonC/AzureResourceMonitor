@@ -11,6 +11,7 @@ app.UseApiKeyAuthentication();
 var tableConnString = Environment.GetEnvironmentVariable("TABLESTORAGECONNECTIONSTRING");
 var tableClient = new TableClient(tableConnString, tableName);
 
+app.MapGet("/liveness", () => "All OK");
 app.MapGet("/", () => Results.Json(tableClient.Query<StatusEntry>()));
 app.MapPost("/", (StatusEntry entry) => {
     entry.PartitionKey = partitionKey;
