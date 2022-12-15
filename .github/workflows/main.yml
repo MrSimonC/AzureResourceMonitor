@@ -21,6 +21,6 @@ jobs:
         uses: azure/container-apps-deploy-action@v0
         with:
           appSourcePath: ${{ github.workspace }}/TableStorageApi
-          acrName: ca1a93d9edf8acr.azurecr.io
+          acrName: ca1a93d9edf8acr
           containerAppName: azureresourcemonitor
           resourceGroup: azureresourcemonitor
