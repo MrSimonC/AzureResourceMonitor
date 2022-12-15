@@ -5,12 +5,10 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
-    <PublishProfile>DefaultContainer</PublishProfile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Azure.Data.Tables" Version="12.7.1" />
-    <PackageReference Include="Microsoft.NET.Build.Containers" Version="0.2.7" />
   </ItemGroup>
 
 </Project>
