@@ -16,6 +16,14 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - run: |
+          NAME=azureresourcemonitor
+          RESOURCE_GROUP=azureresourcemonitor
+          az containerapp secret set --name $NAME --resource-group $RESOURCE_GROUP --secrets "apikeyscrt=${{ secrets.API_KEY }}}"
+          az containerapp secret set --name $NAME --resource-group $RESOURCE_GROUP --secrets "storagescrt=${{ secrets.TABLESTORAGECONNECTIONSTRING }}}"
+          az containerapp update --name $NAME --resource-group $RESOURCE_GROUP --set-env-vars "API_KEY=secretref:apikeyscrt"
+          az containerapp update --name $NAME --resource-group $RESOURCE_GROUP --set-env-vars "TABLESTORAGECONNECTIONSTRING=secretref:storagescrt"
 
       - name: Build and deploy Container App
         uses: azure/container-apps-deploy-action@v0
