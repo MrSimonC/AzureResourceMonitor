@@ -7,7 +7,7 @@ const string partitionKey = "StatusUpdate";
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 app.UseApiKeyAuthentication();
-app.Urls.Add("http://0.0.0.0:8080");
+app.Urls.Add("http://0.0.0.0:3000");
 
 var tableConnString = Environment.GetEnvironmentVariable("TABLESTORAGECONNECTIONSTRING");
 var tableClient = new TableClient(tableConnString, tableName);
