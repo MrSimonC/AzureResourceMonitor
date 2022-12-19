@@ -5,7 +5,7 @@ namespace TableStorageApi.Models;
 
 public class StatusEntry : ITableEntity
 {
-    public required string Program { get; set; }
+    public string Program { get; set; } = string.Empty;
     public DateTime Date { get; set; } = DateTime.UtcNow;
     public string Message { get; set; } = string.Empty;
 
