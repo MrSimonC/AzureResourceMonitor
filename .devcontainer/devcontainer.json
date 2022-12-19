@@ -2,7 +2,6 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
 	"name": "C# (.NET)",
-	"image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
 	"features": {
 		"ghcr.io/devcontainers/features/azure-cli:1": {}
 	}
